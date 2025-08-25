@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 import { RouterOutlet } from '@angular/router';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -8,6 +9,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
   selector: 'app-root',
@@ -22,15 +24,16 @@ import { CommonModule } from '@angular/common';
     MatSidenavModule,
     MatIconModule,
     MatToolbarModule,
+    MatListModule,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  @ViewChild('drawer') drawer: any;
+  @ViewChild('drawer') drawer: MatSidenav | undefined;
   title = 'Japan-Trip';
 
   toggleSideNav() {
-    this.drawer.toggle();
+    this.drawer?.toggle();
   }
 }
