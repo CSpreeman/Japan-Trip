@@ -1,0 +1,15 @@
+/* Things To Do: palette-aware defaults */
+.things-list {
+	display: grid;
+	gap: 12px;
+}
+
+.thing-card {
+	padding: 12px;
+	border-radius: 10px;
+	background: #ffffff;
+	border: 1px solid rgba(16,24,40,0.04);
+	color: var(--outer-space);
+}
+
+.thing-title { font-weight: 600; color: var(--davys-gray); }

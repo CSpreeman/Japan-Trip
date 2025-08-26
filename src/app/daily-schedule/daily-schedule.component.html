@@ -1,1 +1,26 @@
-<p>daily-schedule works!</p>
+<div class="itinerary-container">
+    @for (day of days; track $index) {
+    <mat-card class="itinerary-card">
+        <mat-card-header class="card-header">
+            <mat-card-title class="card-title">{{ day.title }}</mat-card-title>
+            <mat-card-subtitle class="date-chip">{{ day.date }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content class="card-content">
+            @if (day.details) {
+            <p class="details">{{ day.details }}</p>
+            }
+
+            @if (day.hotel && day.hotel.url) {
+            <div class="hotel">
+                <strong>Hotel:</strong>
+                <a class="hotel-link" [href]="day.hotel.url" target="_blank" rel="noopener">
+                    {{ day.hotel.name }}
+                </a>
+                <ng-template #noLink>{{ day.hotel.name }}</ng-template>
+            </div>
+            }
+        </mat-card-content>
+    </mat-card>
+    }
+</div>

@@ -1,0 +1,87 @@
+.itinerary-container {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.itinerary-card {
+  border-radius: 12px;
+  padding: 0;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+  border: 1px solid rgba(16,24,40,0.04);
+  background: #ffffff;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(16, 24, 40, 0.12);
+  }
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(16,24,40,0.04);
+  background: var(--alice-blue);
+  border-radius: 10px;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--outer-space);
+}
+
+.date-chip {
+  font-size: 0.85rem;
+  color: var(--wenge);
+  padding: 6px 10px;
+  border-radius: 999px;
+  align-self: flex-start;
+}
+
+.card-content {
+  padding: 14px 20px 20px 20px;
+}
+
+.details {
+  color: var(--cool-gray);
+  margin: 0 0 12px 0;
+  line-height: 1.45;
+}
+
+.hotel {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.hotel-link {
+  color: var(--powder-blue);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 120ms ease, text-decoration 120ms ease;
+}
+
+.hotel-link:hover {
+  /* Use a darker tone from the palette for hover — avoid Sass functions on CSS vars */
+  color: var(--outer-space);
+  text-decoration: underline;
+}
+
+@media (max-width: 520px) {
+  .itinerary-container {
+    grid-template-columns: 1fr;
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .card-header { padding: 12px; }
+  .card-content { padding: 12px; }
+}

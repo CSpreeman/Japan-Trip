@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
@@ -17,14 +17,16 @@ import { MatListModule } from '@angular/material/list';
   imports: [
     CommonModule,
     RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
     ToolbarComponent,
     MatButtonModule,
     MatSelectModule,
     MatFormFieldModule,
     MatSidenavModule,
-    MatIconModule,
     MatToolbarModule,
     MatListModule,
+    MatIconModule,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
@@ -32,6 +34,23 @@ import { MatListModule } from '@angular/material/list';
 export class AppComponent {
   @ViewChild('drawer') drawer: MatSidenav | undefined;
   title = 'Japan-Trip';
+  routeList = [
+    {
+      name: 'Daily Schedule',
+      path: 'daily-schedule',
+      icon: 'home',
+    },
+    {
+      name: 'Tournament schedule',
+      path: 'tournament-schedule',
+      icon: 'info',
+    },
+    {
+      name: 'Things to Do',
+      path: 'things-to-do',
+      icon: 'contacts',
+    },
+  ];
 
   toggleSideNav() {
     this.drawer?.toggle();

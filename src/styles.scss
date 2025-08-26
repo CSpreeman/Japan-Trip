@@ -1,13 +1,73 @@
+/* Color palette (CSS custom properties + SCSS fallbacks)
+   Theme switched to the user's earthy palette (ash-gray, battleship-gray, wenge, rose-ebony).
+
+   Mapping: existing project variables are aliased to the new palette so components
+   that reference --alice-blue, --powder-blue, etc. continue to work unchanged.
+*/
+
+:root {
+  /* Core palette (RGBA for easy alpha control) */
+  --ash-gray: rgba(201,206,189,1);
+  --ash-gray-2: rgba(178,188,170,1);
+  --battleship-gray: rgba(131,142,131,1);
+  --wenge: rgba(108,96,97,1);
+  --rose-ebony: rgba(100,64,62,1);
+
+  /* Map legacy names used across the app to the new palette (aliases) */
+  --alice-blue: var(--ash-gray-2);
+  --powder-blue: var(--ash-gray);
+  --cool-gray: var(--battleship-gray);
+  --davys-gray: var(--wenge);
+  --outer-space: var(--rose-ebony);
+
+  /* Translucent helpers */
+  --powder-blue-08: rgba(201,206,189,0.08);
+  --alice-blue-50: rgba(178,188,170,0.5);
+}
+
+/* SCSS variables mirror CSS vars for convenience in SCSS files */
+$ash-gray: rgba(201,206,189,1);
+$ash-gray-2: rgba(178,188,170,1);
+$battleship-gray: rgba(131,142,131,1);
+$wenge: rgba(108,96,97,1);
+$rose-ebony: rgba(100,64,62,1);
+
+/* Legacy SCSS fallbacks kept for existing imports/components */
+$alice-blue: $ash-gray-2;
+$powder-blue: $ash-gray;
+$cool-gray: $battleship-gray;
+$davys-gray: $wenge;
+$outer-space: $rose-ebony;
+
 /* You can add global styles to this file, and also import other style files */
 
-html, body, #root, app-root { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body,
+#root,
+app-root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: var(--outer-space);
+  /* flat background */
+  background: #ffffff;
+}
 
 /* Full height sidenav container */
 .app-sidenav-container {
-	height: 100vh;
+  height: 100vh;
 }
 
 .app-main {
-	padding: 16px;
+  padding: 16px;
 }
+
+/* Utility helpers using palette */
+.bg-primary {
+  background: var(--powder-blue);
+  color: var(--outer-space);
+}
+.text-muted { color: var(--cool-gray); }
+.card-bg { background: white; border-radius: 12px; }

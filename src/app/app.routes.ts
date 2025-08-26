@@ -5,6 +5,10 @@ import { TournamentScheduleComponent } from './tournament-schedule/tournament-sc
 
 export const routes: Routes = [
   {
+    path: '',
+    component: DailyScheduleComponent,
+  },
+  {
     path: 'daily-schedule',
     component: DailyScheduleComponent,
   },
@@ -16,9 +20,5 @@ export const routes: Routes = [
     path: 'things-to-do',
     component: ThingsToDoComponent,
   },
-  {
-    path: '',
-    redirectTo: 'daily-schedule',
-    pathMatch: 'full',
-  },
+  { path: '**', component: DailyScheduleComponent },
 ];

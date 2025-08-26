@@ -1,21 +1,18 @@
 <mat-sidenav-container class="app-sidenav-container">
   <mat-sidenav #drawer mode="over" class="app-sidenav">
-    <mat-list role="list">
-      <mat-list-item role="listitem" routerLink="/daily-schedule" routerLinkActive="active-link">Daily
-        Schedule</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item role="listitem" routerLink="/tournament-schedule" routerLinkActive="active-link">Tournament
-        Schedule</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item role="listitem">
-        <div class="example-button-container">
-          <a mat-button routerLink="/things-to-do" routerLinkActive="active-link">
-            <mat-icon>favorite</mat-icon>
-            Things to Do
-          </a>
-        </div>
-      </mat-list-item>
-    </mat-list>
+    <mat-nav-list>
+      @for (link of routeList; track $index) {
+        <a
+          mat-list-item
+          [routerLink]="['/', link.path]"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="drawer.close()"
+        >
+          <span matLine>{{ link.name }}</span>
+        </a>
+      }
+    </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>

@@ -1,0 +1,15 @@
+/* Tournament Schedule: palette-aware defaults */
+.tournament-grid {
+	display: grid;
+	gap: 14px;
+}
+
+.match-card {
+	padding: 12px;
+	border-radius: 10px;
+	background: var(--alice-blue);
+	border-left: 4px solid var(--powder-blue);
+	color: var(--outer-space);
+}
+
+.match-time { color: var(--cool-gray); font-size: 0.95rem; }

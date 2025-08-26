@@ -1,0 +1,15 @@
+/* Sidenav sizing */
+.app-sidenav {
+  width: 250px;
+}
+
+/* Active link styling for material nav list */
+.mat-list-item.active-link,
+.mat-list-item.active-link .mat-list-item-content {
+  background: var(--powder-blue-08);
+}
+
+/* Improve link text appearance */
+.mat-list-item {
+  cursor: pointer;
+}
